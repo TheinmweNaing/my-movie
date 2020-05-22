@@ -1,7 +1,15 @@
 <resources>
-    <string name="app_name">TheMovie</string>
-    <string name="menu_popular">Popular</string>
-    <string name="menu_now_playing">Now Playing</string>
-    <string name="menu_upcoming">Upcoming</string>
-    <string name="menu_top_rated">Top Rated</string>
+    <string name="app_name">The Movie</string>
+    <string name="menu_movie">Movies</string>
+    <string name="menu_about">About</string>
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_closed">Drawer Closed</string>
+    <string name="text_about">This product uses the TMDb API but is not endorsed or certified by TMDb.</string>
+    <string name="text_reference">https://www.themoviedb.org/</string>
+    <string-array name="spinner_entries">
+        <item>Popular</item>
+        <item>Now Playing</item>
+        <item>Upcoming</item>
+        <item>Top Rated</item>
+    </string-array>
 </resources>

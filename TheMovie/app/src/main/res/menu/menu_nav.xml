@@ -5,6 +5,9 @@
             android:id="@+id/movieFragment"
             android:icon="@drawable/ic_movie_black"
             android:title="@string/menu_movie" />
+
+    </group>
+    <group android:checkableBehavior="single">
         <item
             android:id="@+id/aboutFragment"
             android:icon="@drawable/ic_info_black"

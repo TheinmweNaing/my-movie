@@ -6,6 +6,7 @@
     <string name="drawer_closed">Drawer Closed</string>
     <string name="text_about">This product uses the TMDb API but is not endorsed or certified by TMDb.</string>
     <string name="text_reference">https://www.themoviedb.org/</string>
+    <string name="text_overview">Overview</string>
     <string-array name="spinner_entries">
         <item>Popular</item>
         <item>Now Playing</item>

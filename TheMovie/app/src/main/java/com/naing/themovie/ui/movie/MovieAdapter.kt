@@ -1,15 +1,19 @@
-package com.naing.themovie.ui
+package com.naing.themovie.ui.movie
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.naing.themovie.BR
 import com.naing.themovie.R
 import com.naing.themovie.model.dto.Movie
 
-class MovieAdapter : ListAdapter<Movie, MovieAdapter.PopularViewHolder>(DIFF_CALLBACK) {
+class MovieAdapter : ListAdapter<Movie, MovieAdapter.MovieViewHolder>(
+    DIFF_CALLBACK
+) {
 
     interface AdapterItemClickListener {
         fun onClick(position: Int)
@@ -36,21 +40,32 @@ class MovieAdapter : ListAdapter<Movie, MovieAdapter.PopularViewHolder>(DIFF_CAL
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val root = inflater.inflate(R.layout.layout_movie, parent, false)
-        return PopularViewHolder(root)
+        val binding = DataBindingUtil.inflate<ViewDataBinding>(
+            inflater,
+            R.layout.layout_movie,
+            parent,
+            false
+        )
+        return MovieViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: PopularViewHolder, position: Int) {
-        getItem(position)
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+        holder.bind(getItem(position))
     }
 
-    inner class PopularViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class MovieViewHolder(private val binding: ViewDataBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         init {
             itemView.setOnClickListener {
                 adapterItemClickListener?.onClick(adapterPosition)
             }
+        }
+
+        fun bind(movie: Movie) {
+            binding.setVariable(BR.obj, movie)
+            binding.executePendingBindings()
         }
     }
 

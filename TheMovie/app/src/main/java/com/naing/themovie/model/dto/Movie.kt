@@ -4,8 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 
 data class Movie(
+    @JsonProperty("id")
     val id: Int,
+    @JsonProperty("title")
     val title: String,
+    @JsonProperty("overview")
     val overview: String,
     @JsonProperty("genre_ids")
     val genreIds: List<Int>,

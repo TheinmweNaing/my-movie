@@ -6,21 +6,30 @@
     app:startDestination="@id/movieFragment">
     <fragment
         android:id="@+id/movieFragment"
-        android:name="com.naing.themovie.ui.MovieFragment"
+        android:name="com.naing.themovie.ui.movie.MovieFragment"
         android:label="MovieFragment"
         tools:layout="@layout/fragment_movie">
         <action
-            android:id="@+id/action_movieFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            android:id="@+id/action_movieFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.naing.themovie.ui.DetailFragment"
-        android:label="DetailFragment"
-        tools:layout="@layout/fragment_detail" />
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.naing.themovie.ui.AboutFragment"
         android:label="AboutFragment"
-        tools:layout="@layout/fragment_about" />
+        tools:layout="@layout/fragment_about">
+        <action
+            android:id="@+id/action_aboutFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.naing.themovie.ui.WebViewFragment"
+        android:label="WebViewFragment"
+        tools:layout="@layout/fragment_webview" />
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.naing.themovie.ui.movie.MovieDetailFragment"
+        android:label="MovieDetailFragment"
+        tools:layout="@layout/fragment_movie_detail" />
 </navigation>
